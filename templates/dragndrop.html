@@ -5,6 +5,21 @@
 {% endblock %}
 
 {% block main %}
+<h2>Fill in the Blanks</h2>
+<h5 id="points" display="inline">Total points:</h5>
+<form>
+<div class="question">
+    <p>Drag and drop the correct verb to complete the sentence:</p>
+    <p>Ella <span class="blank" draggable="true" id="come"></span> verduras.</p>
+    <p id="feedback"></p>
+</div>
+
+<div id="choices" class="choices">   
+</div>
+<button type="submit" id="submit" class="submit">Submit</button>
+</form>
+<script src="/static/js/quiz.js"></script>
+
 <script>
     // make an array list with the answers
     
