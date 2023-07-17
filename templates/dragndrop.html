@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dragandrop
+{% endblock %}
+
+{% block main %}
+<script>
+    // make an array list with the answers
+    
+    const answers = [{conjugation:"comen", id:"comen"},
+        {conjugation:"come", id:"come"}, 
+        {conjugation:"comemos", id:"comemos"}];
+    
+    //Select the blank in the qustion and make a constant.
+    //Set id to be used later for answer validation    
+    const blank = document.querySelector('.blank');
+    blank.dataset.id = "come";
+    
+    //Select element in the HTML where coices will be displayed
+    const choices = document.getElementById('choices');
+    
+    //Create constants and display choices for the answer
+    for (let i = 0; i < answers.length; i++) {
+        const span = document.createElement("span");
+        span.className = "choice";
+        span.id = answers[i].conjugation;
+        span.draggable = true;
+        span.textContent = answers[i].conjugation;
+        choices.appendChild(span);
+      }
+</script>
+{% endblock %}
+   

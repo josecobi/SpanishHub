@@ -1,0 +1,51 @@
+# IDE and editor-specific files
+.vscode/                  # Visual Studio Code specific directory
+.idea/                    # JetBrains IDE specific directory
+.vs/                      # Visual Studio specific directory
+*.sublime-project         # Sublime Text project file
+*.sublime-workspace       # Sublime Text workspace file
+.swp                       # Vim swap file
+.swo                       # Vim session file
+.DS_Store                  # macOS specific file
+
+# Build and dependency directories
+node_modules/             # Node.js dependencies directory
+vendor/                   # Composer dependencies directory
+dist/                     # Distribution directory
+build/                    # Build directory
+out/                      # Output directory
+
+# Logs and temporary files
+logs/                     # Log files directory
+*.log                     # Log files
+*.tmp                     # Temporary files
+*.temp                    # Temporary files
+*.swp                     # Swap files
+
+# Credentials and configuration files
+.env                      # Environment variable file
+.env.local                # Local environment variable file
+.env.*.local              # Local environment variable file pattern
+.env.*.local.example      # Example local environment variable file
+.config/                  # Configuration files directory
+credentials.json          # JSON file with credentials
+
+# Compiled or generated files
+*.min.css                 # Minified CSS file
+*.min.js                  # Minified JavaScript file
+*.pyc                     # Compiled Python file
+*.class                   # Compiled Java class file
+*.jar                     # Java archive file
+
+# Sensitive data file extensions
+*.key                     # Key file
+*.pem                     # PEM file
+*.cert                    # Certificate file
+*.secret                  # Secret file
+*.password                # Password file
+
+# Backup and archive files
+*.bak                     # Backup file
+*.zip                     # ZIP archive file
+*.tar                     # Tarball archive file
+*.gz                      # GZIP archive file

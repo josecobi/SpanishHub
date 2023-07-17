@@ -1,0 +1,35 @@
+{
+  "name": "spanishhub",
+  "version": "1.0.0",
+  "description": "A place to boost users' Spanish. Practice and learn in an interactive way.",
+  "main": "app.py",
+  "scripts": {
+    "test": "echo \"\\\"No tests available\\\"\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josecobi/SpanishHub.git"
+  },
+  "keywords": [
+    "spanish",
+    "quiz",
+    "language",
+    "learning",
+    "education",
+    "practice",
+    "vocabulary",
+    "grammar",
+    "exercises",
+    "web",
+    "application"
+  ],
+  "author": "Jose Lopez Cobano \"CobiDev\"",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josecobi/SpanishHub/issues"
+  },
+  "homepage": "https://github.com/josecobi/SpanishHub#readme",
+  "dependencies": {
+    "bootstrap": "^5.3.0"
+  }
+}
