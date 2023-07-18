@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # IDE and editor-specific files
 .vscode/                  # Visual Studio Code specific directory
 .idea/                    # JetBrains IDE specific directory
@@ -51,8 +50,6 @@ credentials.json          # JSON file with credentials
 *.tar                     # Tarball archive file
 *.gz                      # GZIP archive file
 
-=======
->>>>>>> 7015c662c2826ae7ab39d1cd5e399fc2f9f27b22
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
