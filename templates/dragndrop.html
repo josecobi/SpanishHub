@@ -5,124 +5,228 @@
 {% endblock %}
 
 {% block main %}
-<h2>Fill in the Blanks</h2>
-<h5 id="points" display="inline">Total points:</h5>
-<form>
-<div class="question">
-    <p>Drag and drop the correct verb to complete the sentence:</p>
-    <p>Ella <span class="blank" draggable="true" id="come"></span> verduras.</p>
-    <p id="feedback"></p>
-</div>
 
-<div id="choices" class="choices">   
-</div>
-<button type="submit" id="submit" class="submit">Submit</button>
-</form>
-<script src="/static/js/quiz.js"></script>
 
-<script>
-// make an array list with the answers
+    <div class="container-quiz" >
+        
+        <form>
+        <div id="question-container" class="hide" >
+            <span id="points">0/10 points</span>
+            <h6 id="instructions">Drag and drop the correct verb to complete the sentence:</h6> 
+            <p><span class="text_before"> </span> <span class="blank"  id="come"></span><span class="text_after"> </span> </p>
+            <p id="feedback"></p>
+            <div id="choices" class="choices"></div>
+            <button type="submit" id="submit" class="submit">Submit</button>
+            <button class="next-button btn hide" id="next-button">Next</button>
+        </div>
+        </form>   
+        <div class="start">
+            <button class="start-button btn" id="start-button">Start</button>
+            
+        </div>
+    </div>
 
-const answers = [{conjugation:"comen", id:"comen"},
-    {conjugation:"come", id:"come"}, 
-    {conjugation:"comemos", id:"comemos"}];
 
-//Select the blank in the qustion and make a constant.
-//Set id to be used later for answer validation    
-const blank = document.querySelector('.blank');
-blank.dataset.id = "come";
-blank.length = 1;
+    <script src="/static/js/quiz.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
 
-//Select element in the HTML where coices will be displayed
-const choices = document.getElementById('choices');
+    <script defer>
+        //Create variables for the list of questions and choices
+        const questions_present = JSON.parse({{questions_present|tojson|safe}});
+        const choices_present = JSON.parse({{choices_present|tojson|safe}});
 
-//Create constants and display choices for the answer
-for (let i = 0; i < answers.length; i++) {
-    const span = document.createElement("span");
-    span.className = "choice";
-    span.id = answers[i].conjugation;
-    span.draggable = true;
-    span.textContent = answers[i].conjugation;
-    choices.appendChild(span);
-  }
-//dragged will be the element that is dragged from the choices list
-//when the dragg starts we can set the data from the element so we can get it when the user drops it.
-let dragged = null;
-choices.addEventListener('dragstart', e => {
-    e.dataTransfer.setData('id', e.target.id);
-    dragged = event.target;
-})
-//Add effects for the blank zone when the user drags the element over it
-blank.addEventListener('dragover', e => {
-    e.preventDefault();
-    if (blank.firstChild) {
-            e.dataTransfer.dropEffect = 'none';
-    } 
-    else {
+        console.log(choices_present);
+
+        let number_of_choices = 3;
+        let displayedQuestion = 0;
+        let total_points = 0;
+
+
+        //Create variables of different html elements and event listeners
+        const instructions = document.querySelector("#instructions")
+        const startButton = document.querySelector("#start-button");
+        startButton.addEventListener("click", startQuiz);
+        const containerQuiz = document.querySelector(".container-quiz");
+        const questionContainer = document.querySelector("#question-container");
+        const nextButton = document.querySelector("#next-button");
+        nextButton.addEventListener("click", () => {
+            event.preventDefault();
+            setNextQuestion(displayedQuestion);
+        });
+        const text_before = document.querySelector(".text_before");
+        const text_after = document.querySelector(".text_after");
+        const blank = document.querySelector('.blank');
+        const choices = document.querySelector('.choices');
+
+
+
+
+        function startQuiz(){
+            console.log("Quiz started")
+            startButton.classList.add("hide")
+            questionContainer.classList.remove("hide")
+            setNextQuestion(displayedQuestion);
+        }
+        function setNextQuestion() {
+            // Clear previous questions and choices
+            text_before.textContent = '';
+            text_after.textContent = '';
+            choices.innerHTML = '';
+            blank.innerHTML = '';
+            feedback.innerHTML = '';
+
+            // Reset state
+            blank.className = 'blank';
+            nextButton.classList.add("hide");
+            submit.classList.remove("hide");
+            feedback.classList.remove("feedback-wrong");
+            feedback.classList.remove("feedback-correct");
+        
+            if (displayedQuestion < questions_present.length) {
+                // Set the question texts
+                text_before.textContent = questions_present[displayedQuestion].question_text_before;
+                text_after.textContent = questions_present[displayedQuestion].question_text_after;
+        
+                // Select choices for the current question
+                let choicesDisplayed = choices_present.filter(function(item) {
+                    return item.question_number === displayedQuestion + 1;
+                });
+        
+                // Display choices
+                choicesDisplayed.forEach(function(choiceItem) {
+                    const span = document.createElement("span");
+                    span.className = "choice";
+                    span.id = choiceItem.choice;
+                    span.textContent = choiceItem.choice;
+                    span.draggable = true;
+                    span.is_correct = choiceItem.is_correct;
+                    choices.appendChild(span);
+                });
+        
+                // Increment the displayedQuestion
+                displayedQuestion++;
+            } else {
+                // Handle end of questions
+                text_before.textContent = "Quiz completed!";
+                text_after.textContent = "";
+                submit.classList.add("hide");
+                instructions.classList.add("hide");
+                blank.classList.add("hide")
+            }
+            
+
+        }
+        
+        //dragged will be the element that is dragged from the choices list
+        //when the dragg starts we can set the data from the element so we can get it when the user drops it.
+        let dragged = null;
+        choices.addEventListener('dragstart', e => {
+            e.dataTransfer.setData('is_correct', e.target.is_correct);
+            dragged = e.target;
+            console.log(dragged);
+        });
+
+        //Add effects for the blank zone when the user drags the element over it
+        blank.addEventListener('dragover', e => {
+            e.preventDefault();
+            if (blank.firstChild) {
+                    e.dataTransfer.dropEffect = 'none';
+            } 
+            else {
+                    e.target.classList.add('hover');
+                }  
+        });
+
+        //Remove effects when leaves the blank zone
+        blank.addEventListener('dragleave', e => {
+            e.target.classList.remove('hover');
+        });
+
+        //The blank zone removes the hover effect, gets the data from the item and allow drop
+        blank.addEventListener('drop', e => {
+            e.target.classList.remove('hover');
+            const is_correct = e.dataTransfer.getData('is_correct');
+            if (e.target.className === 'blank' && !blank.firstChild){
+                e.target.appendChild(dragged);
+                blank.classList.add("dropped"); 
+                blank.firstChild.classList.add("dropped");
+                const allChoices = document.querySelectorAll('.choice');
+                allChoices.forEach(choice => {
+                        choice.draggable = false;
+                });
+            dragged.draggable = true;
+            }
+        });
+
+        //reverse process if the user wants to change the answer before submitting
+        blank.addEventListener('dragstart', e => {
+            e.dataTransfer.setData('is_correct', e.target.is_correct);
+            dragged = event.target;
+        });
+
+        choices.addEventListener('dragover', e => {
+            e.preventDefault();
             e.target.classList.add('hover');
-        }  
-})
+            
+        });
 
-//Remove effects when leaves the blank zone
-blank.addEventListener('dragleave', e => {
-    e.target.classList.remove('hover');
-})
+        choices.addEventListener('dragleave', e => {
+            e.target.classList.remove('hover');
+        });
 
-//The blank zone removes the effect, gets the data from the item and allow drop
-blank.addEventListener('drop', e => {
-    e.target.classList.remove('hover');
-    const id = e.dataTransfer.getData('id');
-    if (e.target.className === 'blank' && !blank.firstChild){
-        e.target.appendChild(dragged);
-    }
-})
+        choices.addEventListener('drop', e => {
+            e.target.classList.remove('hover');
+            const is_correct = e.dataTransfer.getData('is_correct');
+            if (e.target.className === 'choices'){
+                e.target.appendChild(dragged);
+                blank.classList.remove("dropped"); 
+                dragged.classList.remove("dropped");
+                const allChoices = document.querySelectorAll('.choice');
+                allChoices.forEach(choice => {
+                    choice.draggable = true;
+                });
+            };
+        });
 
-//reverse process if the user wants to change the answer before submitting
-blank.addEventListener('dragstart', e => {
-    e.dataTransfer.setData('id', e.target.id);
-    dragged = event.target;
-})
+        //create constants and variables to validate answers and update points
+        const points = document.querySelector('#points')
+        const feedback = document.querySelector('#feedback');
+        const submit = document.querySelector('#submit');
 
-choices.addEventListener('dragover', e => {
-    e.preventDefault();
-    e.target.classList.add('hover');
-    
-})
+        //When the button submit is clicked prevent the page from refreshing
+        //Validate answer by checking the is_correct value
+        //Provide feedback and update the points
+        submit.addEventListener("click", e => {
+            e.preventDefault();
+            console.log(dragged.is_correct);
+            if(dragged.is_correct === 1){
+                feedback.classList.add("feedback-correct");
+                feedback.textContent = '¡Muy bien!';
+                const allChoices = document.querySelectorAll('.choice');
+                allChoices.forEach(choice => {
+                        if(choice == dragged){
+                            choice.classList.add("dragged-correct");
+                        }
+            });
+                total_points++;
+                points.textContent = total_points + "/10 points";
 
-choices.addEventListener('dragleave', e => {
-    e.target.classList.remove('hover');
-})
+            }
+            else{
+                feedback.classList.add("feedback-wrong");
+                feedback.textContent = '¡Uy, casi!';
+                const allChoices = document.querySelectorAll('.choice');
+                allChoices.forEach(choice => {
+                        if(choice == dragged){
+                            choice.classList.add("dragged-wrong");
+                        }
+                });          
+            }
 
-choices.addEventListener('drop', e => {
-    e.target.classList.remove('hover');
-    const id = e.dataTransfer.getData('id');
-    if (e.target.className === 'choices'){
-        e.target.appendChild(dragged);
-    }
-})
-
-//create constants and variables to validate answers and update points
-const points = document.querySelector('#points')
-const feedback = document.querySelector('#feedback');
-const submit = document.querySelector('#submit');
-
-let total_points = 0;
-
-//When the button submit is clicked prevent the page from refreshing
-//validate answer by checking both ids
-//Provide feedback and update the points
-submit.addEventListener("click", e => {
-    e.preventDefault();
-    console.log(dragged.id);
-    if(dragged.id === blank.id){
-        feedback.textContent = '¡Muy bien!';
-        total_points++;
-        points.textContent = "Total points: " + total_points;
-    }
-    else{
-        feedback.textContent = '¡Uy, casi!';
-    }
-});
+            dragged.draggable = false;
+            nextButton.classList.remove("hide");
+            submit.classList.add("hide")
+        });       
    </script>
 {% endblock %}
    

@@ -3,18 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="/static/style.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <link href="/static/custom.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0//js/color-modes.js"></script>
+        <!--<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0//js/color-modes.js"></script>-->
         <title>SpanishHub</title>
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg" style="background-color: rgb(255, 213, 0);">
+            <nav class="navbar navbar-expand-lg" style="background-color: rgb(255, 255, 255);">
                 <div class="container-fluid">
-                  <a class="navbar-brand" href="#" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 700; padding-right: 0; text-align: right; margin-right: 0;">Spanish</a>
-                  <a class="navbar-brand" href="#" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 700; color:#ff0000; padding-left: 0; text-align: left;">Hub</a>
+                  <a class="navbar-brand" href="/" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 700; padding-right: 0; text-align: right; margin-right: 0;">Spanish</a>
+                  <a class="navbar-brand" href="/" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 700; color:#ed2828; padding-left: 0; text-align: left;">Hub</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -24,7 +24,7 @@
                         <a class="nav-link active" aria-current="page" href="/">Home</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link active" href="/dragndrop">DragNDrop</a>
                       </li>
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,21 +37,18 @@
                           <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                      </li>
                     </ul>
                     <form class="d-flex" role="search">
                       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn btn-outline-success" type="submit">Search</button>
+                      <button class="btn" type="submit">Search</button>
                     </form>
                   </div>
                 </div>
               </nav>
         </header>
-        <main>
+        <main class="py-5">
             {% block main %}
-
+            
             {% endblock %}
         </main>
         <footer>
