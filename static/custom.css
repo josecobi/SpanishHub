@@ -1,162 +1,159 @@
-/* *, *::before, *::after {
-    box-sizing:border-box;
-} */
-
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-    }
-    
-    @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-    font-size: 3.5rem;
-    }
-    }
-    
-    .b-example-vr {
-    flex-shrink: 0;
-    width: 1.5rem;
-    height: 100vh;
-    }
-
-    .nav-scroller {
-    position: relative;
-    z-index: 2;
-    height: 2.75rem;
-    overflow-y: hidden;
-    }
-    
-    .nav-scroller .nav {
-    display: flex;
-    flex-wrap: nowrap;
-    padding-bottom: 1rem;
-    margin-top: -1px;
-    overflow-x: auto;
+body {
+    background-color: rgb(241, 239, 239);
+    margin: 0;
     text-align: center;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-    }
- 
+    font-size: 16px; 
+}
+#page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  #content-wrap {
+    padding-bottom: 2.5rem;   
+  }
+
+#footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 1.75rem;           
+  }
+
+.navbar-brand {
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 1000;
+    padding: 0;
+    -webkit-text-stroke: 0.5px black;
+    font-size: 1.75rem;
+}
+
+.hero-image {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../static/images/girl-laptop.jpg");
+    background-color: darkblue;
+    padding: 10vw 0;
+    height: 100vh; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-text {
+    text-align: center;
+    color: white;
+    padding-left: 2vw;
+}
+
+.hero-main-quotes {
+    padding-top: 5vh;
+    text-align: center;
+    color: white;
+    padding-left: 2vw;
+}
+
+.btn {
+    background-color: hsl(53, 97%, 50%);
+    color: black;
+    outline: none;
+    outline-color: currentcolor;
+    outline-style: none;
+    outline-width: medium;
+}
+
 .blank {
     background-color: rgb(228, 227, 227);
-    min-height: 20px;
-    border-bottom: rgb(34, 33, 33);
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-    font-size:30px; 
-    padding-left:60px;
-    border-radius: 3px;
-    margin-right: 8px;
+    min-height: 4rem; 
+    border-bottom: 1px solid rgb(34, 33, 33); 
+    font-size: large; 
+    padding-left: 4rem;
+    border-radius: 0.3rem; 
+    margin-right: 0.5vw; 
+}
+
+.choices {
+    padding: 1rem;
+    border: 1px solid rgb(225, 225, 225);
+    border-radius: 0.75rem;
+}
+
+.choices.hover {
+    background-color: hsl(60, 8%, 92%);
 }
 
 .choice {
     background-color: hsl(235, 98%, 40%);
     color: whitesmoke;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 10px; 
+    border-radius: 0.3rem; 
+    padding: 0.3rem;
+    margin: 0.5rem; 
     cursor: move;
-    
 }
 
 .choice.hover {
     border-color: black;
 }
 
-.choices {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 .blank.hover {
-    background-color:  hsl(60, 2%, 25%);
-    
+    background-color: hsl(60, 2%, 25%);
 }
 
 .submit {
     background-color: hsl(53, 97%, 50%);
     color: rgb(37, 36, 36);
     outline-color: hsl(53, 97%, 18%);
-    border-radius: 5px;
-    margin: 15px;
-    font-size: medium;
+    border-radius: 0.3rem; 
+    margin: 2vw; 
+    font-size: 1rem; 
     font-weight: bold;
-    padding: 2px;
-}
-
-body {
-    background-color: hsl(5, 100%, 31%);
-    margin: 0;
-    padding: 0;
-    justify-content: right;
-    align-items: center;
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    padding: 0.1rem 0.3rem;
 }
 
 #points {
-    border-radius: 7px;
-    font-size: xx-small;
+    border-radius: 0.5rem; 
+    font-size: 0.75rem; 
     background-color: hsl(53, 97%, 50%);
-    padding: 5px;
+    padding: 0.3rem; 
     font-weight: bold;
-  }
+}
 
-  .container-quiz {
-    min-width: 600px;
-    max-width: 900px;
+.container-quiz {
+    min-width: 16.5rem; 
+    max-width: 31rem; 
     background-color: whitesmoke;
-    border-radius: 10px;
-    margin: 0uto;
-    justify-content: center;
-    align-items: center; 
-    display: flex;
-    box-shadow: 5px 5px 3px hwb(0 13% 87%);
-    padding: 10px;   
-    font-size:30px;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none; 
-  }
+    border-radius: 1rem; 
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 1rem;
+    padding: 1.25rem; 
+    font-size: 1.5rem;
+    user-select: none; /* to avoid text from choices to be selected and dragged*/
+    border: 1px solid rgb(207, 206, 206); 
+}
 
 .dragged-correct {
     background-color: hwb(128 1% 43%);
-}  
+}
 
 .dragged-wrong {
     background-color: hwb(7 3% 14%);
-} 
-
+}
 
 .question-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  
-
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
 }
 
 .start {
     justify-content: center;
     align-items: center;
-    display: flex;
 }
 
 .hide {
@@ -164,32 +161,47 @@ main {
 }
 
 .btn {
-    background-color: hsl(53, 97%, 50%);
-    color: black;
+    background-color: hsl(119, 94%, 32%);
+    color: rgb(255, 255, 255);
     outline: none;
+    border-color: white;
 }
 
-.dropped{
+.btn:hover {
+    background-color: hsl(119, 95%, 24%);
+    border-color: white;
+}
+
+#login-button {
+    margin-right: 0.5rem;
+}
+
+.dropped {
     display: inline-block;
-    padding: 0.5px 0.5px; /* Adjust padding as needed */
-    min-width:0.5px; /* Set a minimum width */
+    padding: 0.03rem 0.03rem; 
+    min-width: 3rem; 
+    min-height: 1rem;
+    font-size: large;
     margin: 0;
 }
 
 .feedback-wrong {
-    font-size: medium;
+    font-size: 1rem; 
     color: hwb(7 3% 14%);
     font-weight: bolder;
-    
+}
+
+#next-button {
+    margin: 2vw; 
 }
 
 .feedback-correct {
-    font-size: medium;
+    font-size: 1rem; 
     color: hwb(128 0% 58%);
     font-weight: bolder;
 }
 
 #points {
-    font-size: small;
-    background-color: hsl(53, 97%, 50%);
+    font-size: 1rem; 
+    background-color: hsl(0, 0%, 100%);
 }
