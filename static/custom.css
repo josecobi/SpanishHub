@@ -75,9 +75,11 @@ body {
 }
 
 .choices {
+    display: grid;
     padding: 1rem;
     border: 1px solid rgb(225, 225, 225);
     border-radius: 0.75rem;
+    gap: 5.rem;
 }
 
 .choices.hover {
