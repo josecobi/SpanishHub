@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dragandrop
+{% endblock %}
+
+{% block main %}
+    
+<script defer src="/static/js/verbsMultChoiceQuiz.js"> </script>
+
+    <div class="container-quiz">
+        <select class="tenses-menu" name="tenses" id="tenses">
+            <option value="default" disabled selected>Choose a tense</option>
+            <option value="present">Present</option>
+            <option value="present_stem_changing">Present Stem-Changing</option>
+            <option value="preterit">Preterit</option>
+        </select>
+        <form>
+            <div id="question-container" class="hide">
+                <span id="points"></span>
+                <h6 id="instructions">Fill in the blank with the correct form of the verb:</h6>
+                <p><span class="text_before"> </span> <span class="blank"></span><span class="text_after"> </span></p>
+                <p id="answerFeedback"></p>
+                <div id="choices" class="choices"></div>
+                <div class="quiz-completed-message hide"><p>Quiz completed!</p><p class="quiz-score"></p></div>
+                <button type="submit" id="submit" class="submit btn btn-primary">Submit</button>
+                <button type="button" class="next-button btn btn-primary hide" id="next-button">Next</button>                
+            </div>
+        </form>
+        <div class="start">
+            <button class="btn btn-primary" id="start-button">Start</button>
+        </div>
+    </div>
+
+    
+    
+{% endblock %}
+   

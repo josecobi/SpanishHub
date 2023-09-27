@@ -10,49 +10,66 @@
         <title>SpanishHub</title>
     </head>
     <body>
-        <header>
-            <nav class="navbar navbar-expand-lg" style="background-color: rgb(255, 255, 255);">
-                <div class="container-fluid">
-                  <a class="navbar-brand" href="/" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 700; padding-right: 0; text-align: right; margin-right: 0;">Spanish</a>
-                  <a class="navbar-brand" href="/" style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; font-weight: 700; color:#ed2828; padding-left: 0; text-align: left;">Hub</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                      <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link active" href="/dragndrop">DragNDrop</a>
-                      </li>
-                      <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                      </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                      <button class="btn" type="submit">Search</button>
-                    </form>
+      <div id="page-container">
+        <div id="content-wrap">
+          <header>
+              <nav class="navbar navbar-expand-lg" style="background-color: rgb(255, 255, 255);">
+                  <div class="container-fluid">
+                    <div class="navbar-brand">
+                    <a  href="/" style="text-decoration: none;">
+                    <!-- <span style="color:#d82a2a; margin-right: 0; padding: right 0;">Spanish</span>
+                    <span style="color:#e1e810; padding-left: 0; text-align: left; margin-left: 0;">Hub</span> -->
+                    <img src="../static/images/spanish-hub.svg" alt="Spanish Hub Logo">
+                    </a>
                   </div>
-                </div>
-              </nav>
-        </header>
-        <main class="py-5">
-            {% block main %}
-            
-            {% endblock %}
-        </main>
-        <footer>
-
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link active" href="/verbsMultChoiceQuiz">Practice Verbs</a>
+                        </li>
+                       <!-- <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/dragndrop">Present Tense</a></li>
+                            <li><a class="dropdown-item" href="#">Present Stem Chaning Verbs</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Other tenses</a></li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <a href="/login"><button class="btn btn-primary" id="login-button">Log In</button></a>
+                      <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-primary" type="submit">Search</button>
+                      </form>-->
+                    </div>
+                  </div>
+                </nav>
+          </header>
+          <main class="py-5">
+              {% block main %}
+              
+              {% endblock %}
+          </main>
+        </div>
+      </div>
+        <footer id="footer" class="text-body-secondary py-5">
+          <div class="container">
+            <p class="float-end mb-1">
+              <a href="#">Back to top</a>
+            </p>
+            <p class="mb-1"> 2023 &copy; Spanish Hub</p>
+          </div>
         </footer>
     </body>
+
 </html>
+
