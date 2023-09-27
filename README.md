@@ -58,24 +58,24 @@ cd spanish-hub
 
 ## Create a virtual environment (recommended):
 
-python -m venv venv
+`python -m venv venv`
 
 ## Activate the virtual environment:
 
 **On macOS and Linux**:
 
-source venv/bin/activate
+`source venv/bin/activate`
 
 **On Windows (PowerShell)**:
 
-.\venv\Scripts\Activate.ps1
+`.\venv\Scripts\Activate.ps1`
 
 **Install the required dependencies:**
 
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 **Run the Flask app:**
 
-python app.py
+`python app.py`
 
-Open your web browser and navigate to http://localhost:5000 to start practicing Spanish verb forms.
+Open your web browser and navigate to http://localhost:5000 to start practicing Spanish verb forms.`
