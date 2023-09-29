@@ -9,7 +9,6 @@ Welcome to SpanishHub, a web application designed to help you boost your Spanish
 - [How Flask Powers SpanishHub](#how-flask-powers-spanishhub)
 - [Asynchronous Data Fetching](#asynchronous-data-fetching)
 - [Getting Started](#getting-started)
-
 - [Installation](#installation)
 - [License](#license)
 - [Contact Information](#contact-information)
