@@ -43,7 +43,6 @@ def dragndrop():
 
 @app.route("/tenses/<tense>")
 def get_tense(tense):
-    print(f"Accessed /tenses/{tense}")
     conn = connect_db()
     cursor = conn.cursor()
     if tense == "present":
