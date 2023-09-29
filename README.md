@@ -9,7 +9,7 @@ Welcome to SpanishHub, a web application designed to help you boost your Spanish
 - [How Flask Powers SpanishHub](#how-flask-powers-spanishhub)
 - [Asynchronous Data Fetching](#asynchronous-data-fetching)
 - [Getting Started](#getting-started)
-- [Files and Design Choices](#files-and-design-choices)
+
 - [Installation](#installation)
 - [License](#license)
 - [Contact Information](#contact-information)
@@ -62,7 +62,7 @@ By using asynchronous data fetching, SpanishHub delivers a smooth and responsive
 
 - **/templates/layout.html**: This HTML template serves as the main page structure and is extended by other pages. I also created specific templates, including:
 
-  - **/templates/Index.html**: The landing page template.
+  - **/templates/index.html**: The landing page template.
   
   - **/templates/verbsMultChoiceQuiz.html**: This template contains the boilerplate code for the web app, including the interface for practicing verb forms.
 
@@ -72,9 +72,9 @@ By using asynchronous data fetching, SpanishHub delivers a smooth and responsive
 
 - **Custom Styles**: I created custom styles for most of the elements in the /templates/verbsMultChoiceQuiz.html template. This customization adds a unique and personalized touch to the design.
 
-- **Hero Section Image**: The captivating image used in the hero section of the web app is credited to Thomas Park and was downloaded from [Unsplash](https://unsplash.com). It enhances the visual appeal of the landing page.
+- **Hero Section Image**: The captivating image used in the hero section of the web app (index.html) is credited to Thomas Park and was downloaded from [Unsplash](https://unsplash.com). It enhances the visual appeal of the landing page.
 
-My design choices and file organization reflect my attention to detail and dedication to creating an engaging learning experience for users.
+My design choices and file organization reflect the attention to detail and dedication to creating an engaging learning experience for users.
 
 ## Getting Started
 
