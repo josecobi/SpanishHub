@@ -19,7 +19,7 @@ Welcome to SpanishHub, a web application designed to help you boost your Spanish
 SpanishHub offers a user-friendly interface to practice verb forms in different tenses. Users can choose from various tenses such as Present, Present Stem-Changing, and Preterit, all while avoiding the complexities of grammar jargon.
 
 ### Drag-and-Drop or Tap
-We understand that not all devices have drag-and-drop capabilities, so I've made SpanishHub accessible to all devices. Users can either drag and drop the correct verb form or simply tap the correct choice to fill in the blanks.
+I understand that not all devices have drag-and-drop capabilities, so I've made SpanishHub accessible to all devices. Users can either drag and drop the correct verb form or simply tap the correct choice to fill in the blanks.
 
 ### Real-Time Feedback
 Get immediate feedback on your answers. SpanishHub lets you know if you've answered correctly. It also calculates your score and displays it at the end of the quiz, motivating you to improve with each practice session.
