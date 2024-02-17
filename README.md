@@ -2,6 +2,7 @@
 
 Welcome to SpanishHub, a web application designed to help you boost your Spanish language skills by practicing verb forms! This web app is built using Flask, HTML, JavaScript, CSS, and utilizes an SQLite database to store questions and answers. Whether you're a beginner or looking to refine your language skills, SpanishHub is your go-to destination for practicing verb forms in an interactive way.
 
+![Screenshot 2023-10-03 152916](https://github.com/josecobi/SpanishHub/assets/58313777/5c1aacd5-3b56-47b4-8afe-97dfdfd6ccbe)
 
 ## Table of Contents
 
